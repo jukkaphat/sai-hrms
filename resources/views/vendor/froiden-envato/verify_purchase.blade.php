@@ -38,8 +38,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Enter your envato purchase code</label>
-                                <input type="text" id="purchase_code" name="purchase_code" class="form-control">
+                                <label class="control-label">Enter this envato purchase code.</label>
+                                <label class="control-label">2bcd1ec3-c551-4cfe-841f-d7b03cc44c01</label> 
+                                <input type="text" id="purchase_code" name="purchase_code" class="form-control" value="2bcd1ec3-c551-4cfe-841f-d7b03cc44c01">
                             </div>
                         </div>
                     </div>
