@@ -4,14 +4,14 @@
         <div class="modal-content" id="deleteUserModalForm">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Delete ?</h4>
+                <h4 class="modal-title">ลบ ?</h4>
             </div>
             <div class="modal-body" id="info">
 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-default dark " data-dismiss="modal" aria-hidden="true">Close</button>
-                <button id="delete" class="btn btn-sm red">Delete</button>
+                <button class="btn btn-default dark " data-dismiss="modal" aria-hidden="true">ปิด</button>
+                <button id="delete" class="btn btn-sm red">ลบ</button>
             </div>
         </div>
     </div>

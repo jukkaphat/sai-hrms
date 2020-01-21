@@ -129,7 +129,7 @@ class AttendancesController extends AdminBaseController
 
         if ($employee_count == $attendance_count) {
             if (!Session::get('success')) {
-                Session::flash('success', '<strong>Attendance already marked</strong>');
+                Session::flash('success', 'เช็คชื่อสำเร็จ');
             }
 
         } else {
@@ -223,7 +223,7 @@ class AttendancesController extends AdminBaseController
             }
         }
 
-        Session::flash('success', date('d M Y', strtotime($date)) . 'successfully Updated');
+        Session::flash('success', 'วันที่ ' . date('d M Y', strtotime($date)) . ' อัพเดทสำเร็จ');
         return Redirect::route('admin.attendances.edit', $date);
     }
 

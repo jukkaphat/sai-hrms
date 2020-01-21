@@ -48,9 +48,7 @@
 	<div class="row">
 		<div class="col-md-6 coming-soon-content">
 			<h1>Coming Soon!</h1>
-			<p>
-				 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi vehicula sem ut volutpat. Ut non libero magna fusce condimentum eleifend enim a feugiat.
-			</p>
+			<p>ปิดปรับปรุงระบบชั่วคราว</p>
 			<br>
 			<form class="form-inline" action="#">
 				<div class="input-group input-large">
@@ -63,36 +61,6 @@
 					</span>
 				</div>
 			</form>
-			<ul class="social-icons margin-top-20">
-				<li>
-					<a href="#" data-original-title="Feed" class="rss">
-					</a>
-				</li>
-				<li>
-					<a href="#" data-original-title="Facebook" class="facebook">
-					</a>
-				</li>
-				<li>
-					<a href="#" data-original-title="Twitter" class="twitter">
-					</a>
-				</li>
-				<li>
-					<a href="#" data-original-title="Goole Plus" class="googleplus">
-					</a>
-				</li>
-				<li>
-					<a href="#" data-original-title="Pinterest" class="pintrest">
-					</a>
-				</li>
-				<li>
-					<a href="#" data-original-title="Linkedin" class="linkedin">
-					</a>
-				</li>
-				<li>
-					<a href="#" data-original-title="Vimeo" class="vimeo">
-					</a>
-				</li>
-			</ul>
 		</div>
 		<div class="col-md-6 coming-soon-countdown">
 			<div id="defaultCountdown">
@@ -102,7 +70,7 @@
 	<!--/end row-->
 	<div class="row">
 		<div class="col-md-12 coming-soon-footer">
-			 2014 &copy; HRM.
+			 2019 &copy; Sai-HRMS.
 		</div>
 	</div>
 </div>

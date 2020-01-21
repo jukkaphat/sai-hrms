@@ -21,6 +21,7 @@ use App\Models\Noticeboard;
 use App\Observers\NoticeboardObserver;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        setLocale(LC_ALL, 'th_TH.utf8');
+        Carbon::setLocale('th');
         Schema::defaultStringLength(191);
         \Event::listen(AttendanceEvent::class, SendEmployeeAttendanceMail::class);
         \Event::listen(LeaveRequestEvent::class, SendLeaveRequestMail::class);

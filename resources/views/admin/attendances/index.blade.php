@@ -11,24 +11,23 @@
 
 @section('mainarea')
 
-
 			<!-- BEGIN PAGE HEADER-->
 			<h3 class="page-title">
-			{{$pageTitle}} <small>Employee List</small>
+			ประวัติการ เช็คชื่อ/ลา <small>รายบุคคล</small>
 			</h3>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>
-						<a href="{{route('admin.dashboard.index')}}">Home</a>
+						<a href="{{route('admin.dashboard.index')}}">หน้าหลัก</a>
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="{{route('admin.attendances.index')}}">Attendance</a>
+						<a href="{{route('admin.attendances.index')}}">การเช็คชื่อ</a>
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="#">attendance</a>
+						<a href="{{route('admin.attendances.index')}}">ประวัติการ เช็คชื่อ/ลา</a>
 					</li>
 				</ul>
 
@@ -39,7 +38,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<!-- BEGIN EXAMPLE TABLE PORTLET-->
-					<div id="load">
+					<div id="load" class="myfont-text">
 
                             @if(Session::get('success'))
                                 <div class="alert alert-success">{!! Session::get('success') !!} </div>
@@ -53,9 +52,9 @@
                              {!! Form::open(['route'=>["admin.attendances.create"],'class'=>'form-horizontal','method'=>'GET']) !!}
 
                                     <div class="input-group input-medium date date-picker"   data-date-format="yyyy-mm-dd" data-date-viewmode="years">
-                                           <input type="text" class="form-control" name="date" readonly placeholder="select Date">
+                                           <input type="text" class="form-control" name="date" readonly placeholder="เลือกวัน">
                                            <span class="input-group-btn">
-                                           <button class="btn blue" type="submit"><i class="fa fa-calendar"></i> Edit</button>
+                                           <button class="btn blue" type="submit"><i class="fa fa-calendar"></i> แก้ไข</button>
                                            </span>
                                        </div>
                                      {!! Form::close() !!}
@@ -64,7 +63,7 @@
                                    <div class="col-md-offset-6 col-md-3 ">
 
                                     <a href="{{route('admin.attendances.create')}}" class="btn green">
-                                         Mark Todays Attendance <i class="fa fa-plus"></i>
+                                         เช็คชื่อวันนี้ <i class="fa fa-plus"></i>
                                          </a>
 
 
@@ -79,13 +78,13 @@
 
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-users"></i>Attendance Summary
+								<i class="fa fa-users"></i> รายงานการเช็คชื่อ
 							</div>
                             <div class="tools" style="padding: 5px;">
                                 <form id="attendanceExport" method="POST">
                                     {{ csrf_field() }}
                                     <div class="btn-group pull-right">
-                                        <button type="submit" class="btn yellow"><i class="fa fa-file-excel-o"></i> Export</button>
+                                        <button type="submit" class="btn yellow"><i class="fa fa-file-excel-o"></i> ส่งออก</button>
                                     </div>
                                     <div class="btn-group pull-right" style="margin-right: 10px;">
                                         <div class="input-daterange input-group">
@@ -148,7 +147,7 @@
 
         jQuery(document).ready(function() {
             ComponentsPickers.init();
-        TableManaged.init();
+            TableManaged.init();
             attendanceList();
         });
 

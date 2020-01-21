@@ -4,37 +4,57 @@
     <!-- BEGIN PAGE LEVEL STYLES -->
     {!! HTML::style("assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css") !!}
     {!! HTML::style("assets/global/plugins/bootstrap-datepicker/css/datepicker3.css") !!}
+    
+    <link href="https://fonts.googleapis.com/css?family=Kanit:500|Sarabun&display=swap&subset=thai" rel="stylesheet"> 
+    <style>
+        h1{
+            font-family: 'Kanit', sans-serif !important;
+        }
+        h2{
+            font-family: 'Kanit', sans-serif !important;
+        }
+        h3{
+            font-family: 'Kanit', sans-serif !important;
+        }
+        .myfont-head{
+            font-family: 'Kanit', sans-serif !important;
+        }
+        .myfont-text{
+            font-family: 'Sarabun', sans-serif !important;
+        }
+    </style>
+
     <!-- BEGIN THEME STYLES -->
+    
 @stop
 
 
 @section('mainarea')
 
-
-			<!-- BEGIN PAGE HEADER-->
+	<!-- BEGIN PAGE HEADER-->
 			<h3 class="page-title">
-			Edit Attendance
+			แก้ไขการเช็คชื่อ
 			</h3>
-			<div class="page-bar">
+			<div class="page-bar myfont-text">
 				<ul class="page-breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>
-						<a href="{{route('admin.dashboard.index')}}">Home</a>
+						<a href="{{route('admin.dashboard.index')}}">หน้าหลัก</a>
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="{{ route('admin.attendances.index') }}">Attendace</a>
+						<a href="{{ route('admin.attendances.index') }}">การเช็คชื่อ</a>
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="">Update attendace</a>
+						<a href="">แก้ไขการเช็คชื่อ</a>
 					</li>
 				</ul>
 
 			</div>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
-			<div class="row">
+			<div class="row myfont-text">
 				<div class="col-md-12">
 					<!-- BEGIN EXAMPLE TABLE PORTLET-->
 
@@ -43,13 +63,13 @@
                 {{--END ERROR MESSAGE BOX--}}
 
                    <div class="row">
-                               <div class="col-md-4 form-group">
+                               <div class="col-md-2 form-group">
                                {!! Form::open(['route'=>["admin.attendances.create"],'class'=>'form-horizontal','method'=>'GET']) !!}
 
                                       <div class="input-group input-medium date date-picker"   data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                           <input type="text" class="form-control" name="date" readonly placeholder="select another date">
+                                           <input type="text" class="form-control" name="date" readonly placeholder="เลือกวันที่">
                                            <span class="input-group-btn">
-                                           <button class="btn blue" type="submit"><i class="fa fa-calendar"></i> Edit</button>
+                                           <button class="btn blue" type="submit"><i class="fa fa-calendar"></i> แก้ไข</button>
                                            </span>
                                       </div>
 
@@ -57,23 +77,22 @@
 
                                      </div>
 
-                               <div class="col-md-4 form-group">
+                               <div class="col-md-6 form-group">
 
-                                 @if($date!=date('Y-m-d'))
+                                @if($date!=date('Y-m-d'))
                                      <a href="{{route('admin.attendances.create')}}" class="btn green">
-                                        Mark Todays Attendance <i class="fa fa-plus"></i>
+                                        เช็คชื่อของวันนี้ <i class="fa fa-plus"></i>
                                      </a>
+
                                 @endif
 
 
                                 </div>
                                  <div class="col-md-4 form-group text-right">
 
-								<span id="load_notification"></span>
- 									 <input  type="checkbox"   onchange="ToggleEmailNotification('attendance_notification');return false;" class="make-switch" name="attendance_notification" @if($setting->attendance_notification==1)checked	@endif data-on-color="success" data-on-text="Yes" data-off-text="No" data-off-color="danger">
-									<strong>Email Notification</strong><br>
-
-
+								<span id="load_notification" class="myfont-text"></span>
+ 									 <input  type="checkbox"   onchange="ToggleEmailNotification('attendance_notification');return false;" class="make-switch" name="attendance_notification" @if($setting->attendance_notification==1)checked	@endif data-on-color="success" data-on-text="เปิด" data-off-text="ปิด" data-off-color="danger">
+									 แจ้งเตือนทางอีเมล<br>
 								</div>
 
 
@@ -82,13 +101,13 @@
 
                 <hr>
 					<div class="portlet box blue">
-						<div class="portlet-title">
+						<div class="portlet-title myfont-text">
 							<div class="caption">
 								<i class="fa fa-edit"></i>
 								@if(isset($todays_holidays->date))
-                                        Holiday , {{date('d M Y',strtotime($todays_holidays->date))}}
+                                        วันนี้เป็นวันหยุด , {{thaidate('วันl ที่ j F พ.ศ.Y',strtotime($todays_holidays->date))}}
                                  @else
-                                        Mark Attendance
+                                        เช็คชื่อ
                                 @endif
 							</div>
 							<div class="tools">
@@ -99,17 +118,14 @@
 
 						@if(isset($todays_holidays->date))
 							   <div class="note note-info">
-											<h4 class="block">{{date('D', strtotime($todays_holidays->date))}}</h4>
-											<p>
-												 Holiday on the occassion of {{ $todays_holidays->occassion }}
-											</p>
+											<h4 class="block myfont-text">{{thaidate('วันที่ j',strtotime($todays_holidays->date))}} เป็นวันหยุดเนื่องจาก <strong>{{ $todays_holidays->occassion }}</strong></h4>
 							   </div>
                    		 @elseif(count($employees)==0)
                    		 <hr>
 						<div class="note note-warning">
-										<h4 class="block">Employees Missing</h4>
+										<h4 class="block">ไม่มีพนักงาน</h4>
 										<p>
-											Please add some employees to the database
+											กรุณา<a href="{{route('admin.employees.create')}}">เพิ่มพนักงาน</a>ในฐานข้อมูลก่อน
 										</p>
 						   </div>
 						   <hr>
@@ -119,18 +135,18 @@
 
 
                                     <div class="form-body">
-
-                                         <h3 class="form-section">Date  {{date('d-M-Y',strtotime($date))}}</h3>
+                                        
+                                        <h3 class="form-section">{{thaidate('วันl ที่ j F พ.ศ.Y',strtotime($date))}}</h3>
 
                                         <div class="form-group">
 
-                                           <label class="col-md-1 control-group">EmployeeID</label>
-                                           <label class="col-md-2 control-group">Name</label>
-                                           <label class="col-md-2 control-group">Status </label>
-                                           <label class="col-md-2 control-group leaveType" id="leaveTypeLabel">Type of leave </label>
-                                           <label class="col-md-2 control-group"><span class="halfLeaveType" id="halfDayLabel">half Day leave type</span> </label>
+                                           <label class="col-md-1 control-group">รหัสพนักงาน</label>
+                                           <label class="col-md-2 control-group">ชื่อพนักงาน</label>
+                                           <label class="col-md-2 control-group">สถานะ</label>
+                                           <label class="col-md-2 control-group leaveType" id="leaveTypeLabel">ประเภทการลา</label>
+                                           <label class="col-md-2 control-group"><span class="halfLeaveType" id="halfDayLabel">ลาครึ่งวัน</span> </label>
 
-                                           <label class="col-md-3 control-group reason" id="reasonLabel">Reason </label>
+                                           <label class="col-md-3 control-group reason" id="reasonLabel">เนื่องจาก</label>
 
                                         </div>
 
@@ -139,7 +155,7 @@
                                                 <label class="col-md-1 control-group">{{$employee->employeeID}} </label>
                                                 <label class="col-md-2 control-group">{{$employee->fullName}} </label>
                                                 <div class="col-md-2">
-                                                    <input type="checkbox"  id="checkbox{{$employee->employeeID}}" onchange="showHide('{{$employee->employeeID}}');return false;" class="make-switch" name="checkbox[{{$employee->employeeID}}]" checked data-on-color="success" data-on-text="P" data-off-text="A" data-off-color="danger">
+                                                    <input type="checkbox"  id="checkbox{{$employee->employeeID}}" onchange="showHide('{{$employee->employeeID}}');return false;" class="make-switch" name="checkbox[{{$employee->employeeID}}]" checked data-on-color="success" data-on-text="มา" data-off-text="ขาด" data-off-color="danger">
                                                     <input type="hidden"  name="employees[]" value="{{$employee->employeeID}}">
                                                 </div>
                                                 <div class="col-md-2">
@@ -157,7 +173,7 @@
 													@endif
 													</div>
                                                  <div class="col-md-3">
-                                                        <input type="text" class="form-control reason" id="reason{{$employee->employeeID}}" name="reason[{{$employee->employeeID}}]" placeholder="Absent Reason" value="{{ $attendanceArray[$employee->employeeID]['reason'] ?? ''}}">
+                                                        <input type="text" class="form-control reason" id="reason{{$employee->employeeID}}" name="reason[{{$employee->employeeID}}]" placeholder="เหตุผลที่ขาด" value="{{ $attendanceArray[$employee->employeeID]['reason'] ?? ''}}">
                                                  </div>
                                             </div>
                                          @endforeach
@@ -165,7 +181,7 @@
                                         <div class="form-actions">
                                             <div class="row">
                                                 <div class="col-md-offset-3 col-md-9">
-                                                    <button type="submit"   class="btn green"><i class="fa fa-edit"></i> Submit</button>
+                                                    <button type="submit"   class="btn green"><i class="fa fa-edit"></i> บันทึก</button>
 
                                                 </div>
                                             </div>
@@ -201,10 +217,10 @@
         ComponentsPickers.init();
 
 	});
-	</script>
- <script>
+</script>
 
-        $('.leaveType').hide();
+<script>
+ $('.leaveType').hide();
         $('.reason').hide();
         $('.halfLeaveType').hide();
 

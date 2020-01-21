@@ -1,5 +1,5 @@
 <!-- BEGIN SIDEBAR -->
-<div class="page-sidebar-wrapper">
+<div class="page-sidebar-wrapper myfont-text">
     <div class="page-sidebar navbar-collapse collapse">
         <!-- BEGIN SIDEBAR MENU -->
         <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
@@ -22,7 +22,7 @@
             <li class="start {{ $dashboardActive ?? ''}}">
                 <a href="{{URL::to('admin')}}">
                     <i class="fa fa-home"></i>
-                    <span class="title">{!! Lang::get('menu.dashboard') !!}</span>
+                    <span class="title">แดชบอร์ด</span>
                     <span class="selected"></span>
                 </a>
             </li>
@@ -33,7 +33,7 @@
             <li class="{{ $employeesActive ?? ''}}">
                 <a href="{{route('admin.employees.index')}}">
                     <i class="fa fa-users"></i>
-                    <span class="title">{!! Lang::get('menu.employees') !!}</span>
+                    <span class="title">พนักงาน</span>
                 </a>
             </li>
             {{---------------------------------------/Employees-------------------------------}}
@@ -43,7 +43,7 @@
             <li class="{{ $departmentActive ?? ''}}">
                 <a href="{{route('admin.departments.index')}}">
                     <i class="fa fa-briefcase"></i>
-                    <span class="title">{!! Lang::get('menu.department') !!}</span>
+                    <span class="title">สำนัก/ฝ่าย</span>
                 </a>
             </li>
             {{---------------------------------------Settings-------------------------------}}
@@ -52,7 +52,7 @@
             <li class="{{ $awardsActive ?? ''}}">
                 <a href="{{route('admin.awards.index')}}">
                     <i class="fa fa-trophy"></i>
-                    <span class="title">{!! Lang::get('menu.award') !!}</span>
+                    <span class="title">รางวัล</span>
                 </a>
             </li>
             {{---------------------------------------/Awards-------------------------------}}
@@ -62,7 +62,7 @@
             <li class="{{ $inventoryActive ?? ''}}">
                 <a href="{{route('admin.expenses.index')}}">
                     <i class="fa fa-money"></i>
-                    <span class="title">{!! Lang::get('menu.expense') !!}</span>
+                    <span class="title">รายการเบิก</span>
                 </a>
             </li>
             {{---------------------------------------/Expense-------------------------------}}
@@ -72,7 +72,7 @@
             <li class="{{ $holidayActive ?? ''}}">
                 <a href="{{route('admin.holidays.index')}}">
                     <i class="fa fa-send"></i>
-                    <span class="title">{!! Lang::get('menu.holiday') !!}</span>
+                    <span class="title">ปฏิทินวันหยุด</span>
                 </a>
             </li>
             {{---------------------------------------/Holiday-------------------------------}}
@@ -82,24 +82,24 @@
             <li class="{{ $attendanceOpen ?? ''}}">
                 <a href="javascript:;">
                     <i class="fa fa-user"></i>
-                    <span class="title">{!! Lang::get('menu.attendance') !!}</span>
+                    <span class="title">การเช็คชื่อ</span>
                     <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
                     <li class="{{ $markAttendanceActive ?? ''}}">
                         <a href="{{route('admin.attendances.create')}}">
                             <i class="fa  fa-check"></i>
-                            Mark Attendance</a>
+                            เช็คชื่อ</a>
                     </li>
                     <li class="{{ $viewAttendanceActive ?? ''}}">
                         <a href="{{route('admin.attendances.index')}}">
                             <i class="fa  fa-eye"></i>
-                            {!! Lang::get('menu.viewAttendance') !!}</a>
+                            ประวัติ</a>
                     </li>
                     <li class="{{ $leaveTypeActive ?? ''}}">
                         <a href="{{route('admin.leavetypes.index')}}">
                             <i class="fa fa-sitemap"></i>
-                            {!! Lang::get('menu.leaveTypes') !!}</a>
+                            ประเภทการลา</a>
                     </li>
                 </ul>
             </li>
@@ -110,7 +110,7 @@
             <li class="{{ $leaveApplicationActive ?? ''}}">
                 <a href="{{route('admin.leave_applications.index')}}">
                     <i class="fa fa-rocket"></i>
-                    <span class="title">{!! Lang::get('menu.leaveApplication') !!}</span>
+                    <span class="title">การลา</span>
                 </a>
             </li>
 
@@ -121,7 +121,7 @@
             <li class="{{ $noticeBoardActive ?? ''}}">
                 <a href="{{route('admin.noticeboards.index')}}">
                     <i class="fa fa-clipboard"></i>
-                    <span class="title">{!! Lang::get('menu.noticeBoard') !!}</span>
+                    <span class="title">ประกาศ</span>
                 </a>
             </li>
 
@@ -132,37 +132,37 @@
             <li class="{{ $settingOpen ?? ''}}">
                 <a href="javascript:;">
                     <i class="fa fa-cogs"></i>
-                    <span class="title">{!! Lang::get('menu.settings') !!}</span>
+                    <span class="title">ตั้งค่า</span>
                     <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
                     <li class="{{ $settingActive ?? ''}}">
                         <a href="{{route('admin.settings.edit','setting')}}">
                             <i class="fa  fa-cog"></i>
-                            {!! Lang::get('menu.generalSetting') !!}</a>
+                            ทั่วไป</a>
                     </li>
 
                     <li class="{{ $profileSettingActive ?? ''}}">
                         <a href="{{route('admin.profile_settings.edit','setting')}}">
                             <i class="fa fa-user"></i>
-                            {!! Lang::get('menu.profileSetting') !!}</a>
+                            ข้อมูลส่วนตัว</a>
                     </li>
                     <li class="{{ $notificationSettingActive ?? ''}}">
                         <a href="{{route('admin.notificationSettings.edit','setting')}}">
                             <i class="fa fa-bell"></i>
-                            {!! Lang::get('menu.notificationSetting') !!}</a>
+                            การแจ้งเตือน</a>
                     </li>
 
                     <li class="{{ $emailSettingActive ?? ''}}">
                         <a href="{{route('admin.email_settings.edit','setting')}}">
                             <i class="fa fa-bell"></i>
-                            {!! Lang::get('menu.emailSetting') !!}</a>
+                            อีเมล</a>
                     </li>
 
                     <li class="{{ $updateSettingActive ?? ''}}">
                         <a href="{{route('admin.updateVersion.index')}}">
                             <i class="fa fa-language"></i>
-                            {!! __('menu.updateLog') !!}</a>
+                            อัพเดท</a>
                     </li>
                 </ul>
             </li>
