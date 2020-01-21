@@ -1,133 +1,154 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
 <head>
-    <title>{{$setting->website}} | Login Page</title>
+<meta charset="utf-8"/>
+<title>{{$setting->website}} | เข้าสู่ระบบ</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<link href="https://fonts.googleapis.com/css?family=Kanit:500|Sarabun&display=swap&subset=thai" rel="stylesheet"> 
+<!-- BEGIN  STYLES -->
+{!!  HTML::style("assets/global/plugins/font-awesome/css/font-awesome.min.css")  !!}
+{!!  HTML::style("assets/global/plugins/bootstrap/css/bootstrap.min.css")  !!}
+{!!  HTML::style("assets/admin/pages/css/login-soft.css")  !!}
+{!!  HTML::style("assets/global/css/components.css")  !!}
+{!!  HTML::style("assets/admin/layout/css/layout.css")  !!}
+{!!  HTML::style("assets/admin/layout/css/themes/darkblue.css")  !!}
+{!!  HTML::style('assets/global/plugins/froiden-helper/helper.css')  !!}
+<style>
+	.myfont-head{
+		font-family: 'Kanit', sans-serif !important;
+	}
+	.myfont-text{
+		font-family: 'Sarabun', sans-serif !important;
+	}
+</style>
+<!-- END STYLES -->
 
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="login myfont-text">
+<!-- BEGIN LOGO -->
+<div class="logo">
+		<img src="{{$setting->getLogoImageAttribute()}}" width="200px"/>
+		<h4 class="form-title myfont-text" style="color:#FFF">สำหรับพนักงาน</h4>
+</div>
+<!-- END LOGO -->
+<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+<div class="menu-toggler sidebar-toggler">
+</div>
+<!-- END SIDEBAR TOGGLER BUTTON -->
+<!-- BEGIN LOGIN -->
+<div class="content">
+	<!-- BEGIN LOGIN FORM -->
+	{!!  Form::open(array('url' => '','id'=> 'login-form', 'class' =>'login-form'))  !!}
 
-
-    <!-- CSS Global Compulsory -->
-    {!! HTML::style('front_assets/plugins/bootstrap/css/bootstrap.min.css') !!}
-    {!! HTML::style('front_assets/css/style.css') !!}
-
-    <!-- CSS Implementing Plugins -->
-    {!! HTML::style('front_assets/plugins/line-icons/line-icons.css') !!}
-    {!! HTML::style('front_assets/plugins/font-awesome/css/font-awesome.min.css') !!}
-
-    <!-- CSS Page Style -->
-    {!! HTML::style('front_assets/css/pages/page_log_reg_v2.css') !!}
-
-    <!-- CSS Theme -->
-    {!! HTML::style('front_assets/css/theme-colors/default.css') !!}
-
-    <!-- CSS Customization -->
-    {!! HTML::style('front_assets/css/custom.css') !!}
-    {!! HTML::style('assets/global/plugins/froiden-helper/helper.css')  !!}
-</head> 
-
-<body>
-<!--=== Content Part ===-->    
-<div class="container">
-    <!--Reg Block-->
-    {!!  Form::open(array('id'=>'login-form'))  !!}
-    <div class="reg-block">
-        <div class="reg-block-header">
-            <h2><img src="{{$setting->getLogoImageAttribute()}}" width="117px" /></h2>
-            <h3 class="text-center">Employee Panel</h3>
-        </div>
-
-        <div id="alert"></div>
-
-        <div class="form-group rem margin-bottom-20">
-            <div>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input type="email" class="form-control" id="email" name="email"
-                           placeholder="{{ trans('core.email') }}" required>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group rem margin-bottom-20">
-            <div>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input type="password" class="form-control" id="password" name="password"
-                           placeholder="{{ trans('core.password') }}"
-                           required>
-                </div>
-            </div>
-        </div>
-
-        <label style="font-weight: normal;" class="margin-bottom-20 rem">
-            <input type="checkbox" name="remember"> Always stay signed in
+		<h3 class="form-title myfont-head">ระบบจัดการบุคลากร</h3>
+		<div id="alert"></div>
+		<div class="form-group">
+			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+			<label class="control-label visible-ie8 visible-ie9">อีเมล</label>
+			<div class="input-icon">
+				<i class="fa fa-user"></i>
+				<input class="form-control placeholder-no-fix" type="email" autocomplete="off" placeholder="อีเมล" name="email"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label visible-ie8 visible-ie9">รหัสผ่าน</label>
+			<div class="input-icon">
+				<i class="fa fa-lock"></i>
+				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="รหัสผ่าน" name="password"/>
+			</div>
+		</div>
+		<label style="font-weight: normal;" class="margin-bottom-20 rem">
+            <input type="checkbox" name="remember">	จำการเข้าสู่ระบบ
         </label>
-
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <button type="submit" class="btn-u btn-block input-group" id="submitbutton"
-                        onclick="login(); return false;">{{trans('core.btnLogin')}}</button>
-            </div>
-        </div>
-    </div>
-    <!--End Reg Block-->
-    {!! Form::close() !!}
-</div><!--/container-->
-<!--=== End Content Part ===-->
-<!-- JS Global Compulsory -->
-{!! HTML::script('front_assets/plugins/jquery/jquery.min.js') !!}
-{!! HTML::script('front_assets/plugins/jquery/jquery-migrate.min.js') !!}
-{!! HTML::script('front_assets/plugins/bootstrap/js/bootstrap.min.js') !!}
-
-<!-- JS Implementing Plugins -->
-{!! HTML::script('front_assets/plugins/back-to-top.js') !!}
-{!! HTML::script('front_assets/plugins/backstretch/jquery.backstretch.min.js') !!}
+		<div class="form-actions">
+			<button type="submit" class="btn blue pull-right" id="submitbutton" onclick="login();return false;">
+			เข้าสู่ระบบ <i class="m-icon-swapright m-icon-white"></i>
+			</button>
+		</div>
+	{!! Form::close() !!}
+	<!-- END LOGIN FORM -->
+	<hr>
+		<div class="form-group text-center">
+			<a href="/admin"><label class="btn btn-sm green ">ไปที่หน้าสำหรับ<u>ผู้ดูแล</u></label></label></a>
+		</div>
+	
+</div>
+<!-- END LOGIN -->
+<!-- BEGIN COPYRIGHT -->
+<div class="copyright">
+	  {{date('Y')}} &copy; {{$setting->website}}
+</div>
+<!-- END COPYRIGHT -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+{!! HTML::script('assets/global/plugins/respond.min.js') !!}
+{!! HTML::script('assets/global/plugins/excanvas.min.js') !!}
+<![endif]-->
+{!!  HTML::script("assets/global/plugins/jquery.min.js") !!}
+{!!  HTML::script("assets/global/plugins/bootstrap/js/bootstrap.min.js")  !!}
+{!!  HTML::script("assets/global/plugins/backstretch/jquery.backstretch.min.js")  !!}
+{!!  HTML::script("assets/global/scripts/metronic.js")  !!}
+{!!  HTML::script("assets/admin/layout/scripts/demo.js")  !!}
 {!! HTML::script('assets/global/plugins/froiden-helper/helper.js') !!}
 
-<script type="text/javascript">
-    $.backstretch([
-    "{{URL::asset('front_assets/img/bg/5.jpg')}}",
-    "{{URL::asset('front_assets/img/bg/4.jpg')}}"
-
-    ], {
-        fade: 1000,
-        duration: 7000
-    });
-</script>
-
-<!--[if lt IE 9]>
-{!! HTML::script('front_assets/plugins/respond.js') !!}
-{!! HTML::script('front_assets/plugins/html5shiv.js') !!}
-{!! HTML::script('front_assets/js/plugins/placeholder-IE-fixes.js') !!}
-
-
-<![endif]-->
-<!-- JS Customization -->
+		<!-- END PAGE LEVEL SCRIPTS -->
 
 <script>
-    function login(){
 
-        $.easyAjax({
-            type: 'POST',
-            url: "{{route('login')}}",
-            data: $('#login-form').serialize(),
-            container: "#login-form",
-            messagePosition: 'inline',
-            success: function (response) {
-                if (response.status == "success") {
-                    $('#login-form')[0].reset();
-                }
-            }
-        });
-        return false;
+jQuery(document).ready(function() {
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+  Metronic.init(); // init metronic core components
+	
+       // init background slide images
+       $.backstretch([
+			"{{ URL::asset('assets/admin/pages/media/bg/1.jpg') }}",
+			"{{ URL::asset('assets/admin/pages/media/bg/2.jpg') }}",
+			"{{ URL::asset('assets/admin/pages/media/bg/3.jpg') }}",
+			"{{ URL::asset('assets/admin/pages/media/bg/4.jpg') }}"
+        ], {
+          fade: 1000,
+          duration: 7000
     }
-
+    );
+});
 </script>
+
+
+<script>
+function login(){
+	$.easyAjax({
+		type: 'POST',
+		url: "{{route('login')}}",
+		data: $('#login-form').serialize(),
+		container: "#login-form",
+		messagePosition: 'inline',
+		success: function (response) {
+			if (response.status == "success") {
+				$('#login-form')[0].reset();
+			}
+		}
+	});
+	return false;
+}
+    
+</script>
+<!-- END JAVASCRIPTS -->
 </body>
-</html> 
+<!-- END BODY -->
+</html>

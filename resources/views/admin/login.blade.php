@@ -8,11 +8,12 @@
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8"/>
-<title> HRM | Login </title>
+<title>{{$setting->website}} | เข้าสู่ระบบ</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<link href="https://fonts.googleapis.com/css?family=Kanit:500|Sarabun&display=swap&subset=thai" rel="stylesheet"> 
 <!-- BEGIN  STYLES -->
 {!!  HTML::style("assets/global/plugins/font-awesome/css/font-awesome.min.css")  !!}
 {!!  HTML::style("assets/global/plugins/bootstrap/css/bootstrap.min.css")  !!}
@@ -20,18 +21,25 @@
 {!!  HTML::style("assets/global/css/components.css")  !!}
 {!!  HTML::style("assets/admin/layout/css/layout.css")  !!}
 {!!  HTML::style("assets/admin/layout/css/themes/darkblue.css")  !!}
-{!! HTML::style('assets/global/plugins/froiden-helper/helper.css')  !!}
+{!!  HTML::style('assets/global/plugins/froiden-helper/helper.css')  !!}
+<style>
+	.myfont-head{
+		font-family: 'Kanit', sans-serif !important;
+	}
+	.myfont-text{
+		font-family: 'Sarabun', sans-serif !important;
+	}
+</style>
 <!-- END STYLES -->
 
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="login">
+<body class="login myfont-text">
 <!-- BEGIN LOGO -->
 <div class="logo">
-	<a href="javacript:;">
-		<img src="{{$setting->getLogoImageAttribute()}}"  width="117px" />
-	</a>
+		<img src="{{$setting->getLogoImageAttribute()}}" width="200px"/>
+		<h4 class="form-title myfont-text" style="color:#FFF">สำหรับผู้ดูแลระบบ</h4>
 </div>
 <!-- END LOGO -->
 <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
@@ -43,35 +51,35 @@
 	<!-- BEGIN LOGIN FORM -->
 	{!!  Form::open(array('url' => '','id'=> 'adminLogin', 'class' =>'login-form'))  !!}
 
-		<h3 class="form-title">Login to your Admin account</h3>
+		<h3 class="form-title myfont-head">ระบบจัดการบุคลากร</h3>
 		<div id="alert">
 
 		</div>
 		<div class="form-group">
 			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-			<label class="control-label visible-ie8 visible-ie9">Email</label>
+			<label class="control-label visible-ie8 visible-ie9">อีเมล</label>
 			<div class="input-icon">
 				<i class="fa fa-user"></i>
-				<input class="form-control placeholder-no-fix" type="email" autocomplete="off" placeholder="Email" name="email"/>
+				<input class="form-control placeholder-no-fix" type="email" autocomplete="off" placeholder="อีเมล" name="email"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Password</label>
+			<label class="control-label visible-ie8 visible-ie9">รหัสผ่าน</label>
 			<div class="input-icon">
 				<i class="fa fa-lock"></i>
-				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
+				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="รหัสผ่าน" name="password"/>
 			</div>
 		</div>
 
 		<div class="form-actions">
 
 			<button type="submit" class="btn blue pull-right" id="submitbutton" onclick="login();return false;">
-			Login <i class="m-icon-swapright m-icon-white"></i>
+			เข้าสู่ระบบ ผู้ดูแล <i class="m-icon-swapright m-icon-white"></i>
 			</button>
 		</div>
 		<hr>
 		<div class="form-group text-center">
-			<a href="{{route('front.login')}}"><label class="btn btn-sm green ">Go to Employee Panel</label></a>
+			<a href="{{route('front.login')}}"><label class="btn btn-sm green ">ไปที่หน้าสำหรับ<u>พนักงาน</u></label></a>
 		</div>
 
 	{!! Form::close() !!}

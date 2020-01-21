@@ -1,5 +1,5 @@
 <!-- BEGIN HEADER -->
-<div class="page-header navbar navbar-fixed-top">
+<div class="page-header navbar navbar-fixed-top myfont-text">
     <!-- BEGIN HEADER INNER -->
     <div class="page-header-inner">
         <!-- BEGIN LOGO -->
@@ -38,7 +38,7 @@
 
                     <ul class="dropdown-menu">
                         <li class="external">
-                            <h3><span class="bold">{{count($pending_applications)}} pending</span> notifications</h3>
+                            <h3>คุณมี <span class="bold">{{count($pending_applications)}} </span> การแจ้งเตือน</h3>
 
                         </li>
                         @if(count($pending_applications)>0)
@@ -54,7 +54,7 @@
                 									<span class="label label-sm label-icon label-success">
                 									<i class="fa fa-bell-o"></i>
                 									</span>
-                									 <strong>{{$pending->employeeDetails->fullName}} </strong> has applied for leave on {{date('d-M-Y',strtotime($pending->date))}}</span>
+                									 <strong>{{$pending->employeeDetails->fullName}} </strong> ได้ยื่นใบลาเมื่อ {{date('d-M-Y',strtotime($pending->date))}}</span>
                                             </a>
                                         </li>
                                     @endforeach
@@ -76,18 +76,18 @@
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
                             <a href="{{route('admin.profile_settings.edit',Auth::guard('admin')->user()->id)}}">
-                                <i class="icon-user"></i> My Profile </a>
+                                <i class="icon-user"></i> ข้อมูลส่วนตัว </a>
                         </li>
 
                         <li class="divider">
                         </li>
                         <li>
                             <a href="{{ URL::to('screenlock') }} ">
-                                <i class="icon-lock"></i> Lock Screen </a>
+                                <i class="icon-lock"></i> ล็อกหน้าจอ </a>
                         </li>
                         <li>
                             <a href="{{ URL::route('admin.logout') }} " id="logout-form">
-                                <i class="icon-logout"></i> Log Out </a>
+                                <i class="icon-logout"></i> ออกจากระบบ </a>
                         </li>
                     </ul>
                 </li>

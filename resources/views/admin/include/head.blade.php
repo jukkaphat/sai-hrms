@@ -4,6 +4,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
+
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 {!! HTML::style("https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all")!!}
 {!! HTML::style("assets/global/plugins/font-awesome/css/font-awesome.min.css") !!}
@@ -22,5 +23,23 @@
 {!! HTML::style('assets/global/plugins/froiden-helper/helper.css')  !!}
 
 
+<link href="https://fonts.googleapis.com/css?family=Kanit:500|Sarabun&display=swap&subset=thai" rel="stylesheet"> 
+<style>
+	h1{
+		font-family: 'Kanit', sans-serif !important;
+	}
+	h2{
+		font-family: 'Kanit', sans-serif !important;
+	}
+	h3{
+		font-family: 'Kanit', sans-serif !important;
+	}
+    .myfont-head{
+		font-family: 'Kanit', sans-serif !important;
+	}
+	.myfont-text{
+		font-family: 'Sarabun', sans-serif !important;
+	}
+</style>
 
 
